@@ -1,9 +1,8 @@
-public class Produto{
+public abstract class Produto {
     protected String nome;
     protected double preco;
     protected int qtdEstoque;
 
-    // Construtor
     public Produto(double preco, int qtdEstoque, String nome) {
         this.preco = preco;
         this.qtdEstoque = qtdEstoque;
@@ -22,36 +21,17 @@ public class Produto{
         return qtdEstoque;
     }
 
-    public void mostrarEstoque() {
-        System.out.println("===== ESTOQUE =====" );
-        if (qtdEstoque<=0){
-            System.out.println("Estoque " +this.nome+ " ZERADO");
-        }
-        else {
-            System.out.println( "Produto : "+ this.nome + "\nQuantidade = " + this.qtdEstoque + "\nPreco = "+this.preco);
+    public void repor(int quantidade) {
+        if (quantidade > 0) {
+            this.qtdEstoque += quantidade;
         }
     }
-    public int repor(int quantidade) {
-        System.out.println("===== REPOSICAO =====" );
-        if (quantidade > 0) {
-            this.qtdEstoque = this.qtdEstoque + quantidade;
-            System.out.println("Estoque reposto: +" + quantidade + " unidade(s) de " + nome + ".");
-        } else {
-            System.out.println("A quantidade para reposição deve ser maior que zero.");
-        }
 
-        return quantidade;
-    }   
-
-    public int vender (int quantidade) {
-        System.out.println("===== VENDAS =====" );
-        if (quantidade < 0 || quantidade > this.qtdEstoque) {
-            System.out.println("A quantidade de "+this.nome+ " insuficiente .");
-        } 
-        else {
-            this.qtdEstoque = this.qtdEstoque - quantidade;
-            System.out.println("Vendido: " + quantidade + " unidade(s) de " + this.nome + ".");
+    public void vender(int quantidade) {
+        if (quantidade > 0 && quantidade <= this.qtdEstoque) {
+            this.qtdEstoque -= quantidade;
         }
-    return quantidade;
-}
+    }
+
+    public abstract void mostrarDetalhes();
 }
