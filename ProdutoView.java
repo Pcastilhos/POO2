@@ -7,8 +7,4 @@ public class ProdutoView {
             System.out.println();
         }
     }
-
-    public void exibirMensagem(String mensagem) {
-        System.out.println(mensagem);
-    }
 }

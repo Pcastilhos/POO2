@@ -14,20 +14,20 @@ controller.cadastrarProduto(new ProdutoPerecivel(30.0, 10, "Sorvete", LocalDate.
 controller.cadastrarProduto(new ProdutoPerecivel(7.90, 12,"Leite",LocalDate.of(2026, 8, 20)));
 
 menu.exibirMenu();
-view.exibirMensagem("\n===== LISTA INICIAL =====");
+System.out.println("\n===== LISTA INICIAL =====");
 view.exibirProdutos(controller.listarProdutos());
 
 controller.reporProduto("Caneta", 5);
 controller.reporProduto("Caderno", 10);
 controller.reporProduto("Leite", 24);
 
-view.exibirMensagem("===== APOS REPOSICAO =====");
+System.out.println("\n===== APOS REPOSICAO =====");
 view.exibirProdutos(controller.listarProdutos());
 
 controller.venderProduto("Caneta", 10);
 controller.venderProduto("Leite", 12);
 
-view.exibirMensagem("===== APOS VENDAS =====");
+System.out.println("\n===== APOS VENDAS =====");
 view.exibirProdutos(controller.listarProdutos());
 }
 }

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProdutoController {
-    private final List<Produto> produtos = new ArrayList<>();
+    private List<Produto> produtos = new ArrayList<>();
 
     public void cadastrarProduto(Produto produto) {
         produtos.add(produto);
@@ -14,7 +14,7 @@ public class ProdutoController {
 
     public Produto buscarPorNome(String nome) {
         for (Produto produto : produtos) {
-            if (produto.getNome().equalsIgnoreCase(nome)) {
+            if (produto.getNome().equals(nome)) {
                 return produto;
             }
         }
